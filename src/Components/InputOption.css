@@ -1,0 +1,17 @@
+.inputOption{
+    display: flex;
+    flex-direction: row;
+    padding: 10px;
+    cursor: pointer;
+    border-radius: 10px;
+    width: 100%;
+    color: grey;
+}
+.inputOption:hover{
+    background-color: whitesmoke;
+    color: black;
+}
+.inputOption > p{
+    padding-left: 2px;
+    padding-top: 2px;
+}
