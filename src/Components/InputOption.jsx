@@ -10,4 +10,4 @@ function InputOption({Icon, title, color}) {
     )
 }
 
-export default InputOption
+export default InputOption;

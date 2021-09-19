@@ -1,11 +1,13 @@
 .inputOption{
     display: flex;
-    flex-direction: row;
     padding: 10px;
     cursor: pointer;
     border-radius: 10px;
     width: 100%;
     color: grey;
+    align-items: center;
+    align-content: center;
+    text-align: center;
 }
 .inputOption:hover{
     background-color: whitesmoke;
