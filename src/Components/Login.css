@@ -26,11 +26,12 @@
     width: 350px;
     align-self: center;
     height: 50px;
-    background-color: blueviolet;
+    background-color: #0047b1;
     color: white;
     cursor: pointer;
     margin-bottom: 5px;
 }
 .login > p > span{
     cursor: pointer;
+    color: #0177b7;
 }
