@@ -8,11 +8,15 @@ import SlideshowIcon from '@material-ui/icons/Slideshow';
 import Post from './Post';
 import { db } from '../Firebase/Firebase';
 import firebase from 'firebase/compat/app';
+import { useSelector } from 'react-redux';
+import { selectUser } from '../features/userSlice';
 
 function Feed() {
 
     const[input, setInput] = useState('');
     const [posts, setPosts] = useState([]);
+
+    const user = useSelector(selectUser);
 
     useEffect(() => {
         db.collection("posts").orderBy("timestamp","desc").onSnapshot(snapshot => (
@@ -28,12 +32,12 @@ function Feed() {
     const sendPost = e =>{
         e.preventDefault();
         db.collection('posts').add({
-            name : "arka",
-            description : "Wohooooo",
+            name : user.displayName,
+            description : user.email,
             message : input,
             timestamp : firebase.firestore.FieldValue.serverTimestamp()
         })
-        setInput("")
+        setInput("");
     }
 
     return (
@@ -42,7 +46,7 @@ function Feed() {
                 <div className="feed_input">
                     <CreateIcon />
                     <form>
-                        <input value={input} onChange={e => setInput(e.target.value)} type="text" placeholder='write your post'/>
+                        <input value={input} onChange={(e) => (setInput(e.target.value))} type="text" placeholder='write your post'/>
                         <button onClick={sendPost} type="submit">Send</button>
                     </form>
                 </div>

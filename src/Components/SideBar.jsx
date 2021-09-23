@@ -1,8 +1,12 @@
 import { Avatar } from '@material-ui/core';
 import React from 'react';
+import { useSelector } from 'react-redux';
+import { selectUser } from '../features/userSlice';
 import "./Sidebar.css";
 
 function SideBar() {
+
+    const user = useSelector(selectUser);
 
     const recentItem = function(topic) {
         return(
@@ -18,8 +22,8 @@ function SideBar() {
             <div className="sidebar_top">
                 <img src="https://timelinecovers.pro/facebook-cover/download/simple-background-that-can-be-texted-facebook-cover.jpg" alt="" />
                 <Avatar className="sidebar_avatar" />
-                <h2>Arkajit Choudhury</h2>
-                <h4>arlachoudhury@gmail.com</h4>
+                <h2>{user.displayName}</h2>
+                <h4>{user.email}</h4>
             </div>
 
             <div className="sidebar_stats">

@@ -13,6 +13,13 @@ function Login() {
 
     const loginToApp = (e) => {
         e.preventDefault();
+        auth.signInWithEmailAndPassword(email, password).then((userAuth)=>{
+            dispatch(login({
+                email : email,
+                uid : userAuth.user.uid,
+                displayName : name,
+            }))
+        }).catch((error)=> alert(error))
     };
 
     const register = (e) => {

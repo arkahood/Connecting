@@ -26,10 +26,8 @@ function App() {
         dispatch(logout());
      }
    })
- });
+ },[dispatch]);
 
-  
-  //const user = {};
   return (
     <div className="App">
       <Header />
